@@ -1,0 +1,16 @@
+import java.util.Scanner;
+
+public class Main {
+    public static char verificarSinal(int numero) {
+        return (numero > 0) ? 'P' : 'N';
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Digite um número inteiro: ");
+        int valor = sc.nextInt();
+
+        char resultado = verificarSinal(valor);
+        System.out.println("Resultado: " + resultado);
+    }
+}

@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class Main {
+    public static String converterHora(int hora, int minuto) {
+        String periodo;
+        int horaConvertida;
+
+        if (hora == 0) {
+            horaConvertida = 12;
+            periodo = "A";
+        } else if (hora < 12) {
+            horaConvertida = hora;
+            periodo = "A";
+        } else if (hora == 12) {
+            horaConvertida = 12;
+            periodo = "P";
+        } else {
+            horaConvertida = hora - 12;
+            periodo = "P";
+        }
+
+        return String.format("%d:%02d %s.M.", horaConvertida, minuto, periodo);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String continuar;
+
+        do {
+            System.out.print("Digite a hora (0-23): ");
+            int hora = sc.nextInt();
+
+            System.out.print("Digite os minutos (0-59): ");
+            int minuto = sc.nextInt();
+
+            String resultado = converterHora(hora, minuto);
+            System.out.println("Hora convertida: " + resultado);
+
+            System.out.print("Deseja converter outra hora? (s/n): ");
+            continuar = sc.next().toLowerCase();
+        } while (continuar.equals("s"));
+
+        System.out.println("Programa encerrado.");
+    }
+}
